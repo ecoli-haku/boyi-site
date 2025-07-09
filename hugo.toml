@@ -1,49 +1,89 @@
 # hugo.toml
+baseURL = "https://boyi-wang.com/"
+languageCode = "en-us"
+title = "BOYI WANG"
+theme = "congo"
 
-baseURL = "https://boyi-wang.com/" 
-languageCode = "en-us"          # **关键：设置为英文**
-title = "BOYI WANG" # 替换为你的英文网站标题
-
-theme = "congo" # 指定使用 Congo 主题
-
+# 重要：确保正确的构建设置
+publishDir = "public"
+disableKinds = []
 
 [taxonomies]
   author = "authors"
 
-# --- 主题参数 ---
 [params]
-  colorScheme = "auto" # **关键：设置为 "auto"，允许用户切换和自动适应系统设置**
-  defaultAppearance = "light" # 设置默认外观模式（当 colorScheme 为 auto 时，如果用户没有明确选择，将以此模式显示）
-  customCSS = true
-
-  [params.homepage] 
-    layout = "profile" 
+  colorScheme = "auto"
+  defaultAppearance = "light"
+  
+  # 关键：确保主页布局设置正确
+  [params.homepage]
+    layout = "profile"
+    showRecent = false
+    showRecentItems = 0
 
   [params.header]
-    menuAlignment = "left"
+    layout = "basic"  # 或 "hamburger"
+    logo = ""
+    showTitle = false
+    darkModeToggle = true
+    searchToggle = false
 
   [params.footer]
-    show = false
+    showMenu = false
+    showCopyright = false
+    showThemeAttribution = false
+    showAppearanceSwitcher = false
+    showScrollToTop = false
 
-  # 启用内置的搜索功能 (可选)
-  [params.analytics]
-    plausible = false # 根据需要配置
-    google = false    # 根据需要配置
+  [params.article]
+    showDate = false
+    showViews = false
+    showLikes = false
+    showDateUpdated = false
+    showAuthor = false
+    showHero = false
+    heroStyle = "basic"
+    showBreadcrumbs = false
+    showDraftLabel = false
+    showEdit = false
+    editURL = ""
+    editAppendPath = false
+    seriesNavigation = false
+    showHeadingAnchors = false
+    showPagination = false
+    invertPagination = false
+    showReadingTime = false
+    showTableOfContents = false
+    showTaxonomies = false
+    showAuthorsBadges = false
+    showWordCount = false
+    showSummary = false
+    sharingLinks = false
 
-  # 启用内置的评论系统 (可选)
-  [params.comments]
-    enabled = false   # 设置为 true 以启用评论系统，例如 Giscus, Disqus 等
-    service = ""      # 选择评论服务 (e.g., "giscus", "disqus")
+  [params.list]
+    showHero = false
+    showSummary = false
+    showTableOfContents = false
+    showCards = false
+    groupByYear = false
+    cardView = false
+    cardViewScreenWidth = false
 
-  # 配置 RSS 链接，通常不需要修改
-  [params.rss]
-    localized = true
+  [params.sitemap]
+    excludedKinds = ["taxonomy", "term"]
 
-  # --- 个人资料配置 (Profile Layout Specific) ---
+  [params.taxonomy]
+    showTermCount = false
+
+  [params.term]
+    showHero = false
+    showTableOfContents = false
+    groupByYear = false
+    cardView = false
+
   [params.author]
     name = "BOYI WANG"
-    image = "avatar.jpg" # 
-    imageTitle = "not generated from AI"
+    image = "avatar.jpg"
     headline = "Postdoctoral researcher @ MPI-PKS"
     bio = "Postdoc @ MPI-PKS"
     links = [
@@ -54,39 +94,18 @@ theme = "congo" # 指定使用 Congo 主题
       { file-pdf = "/CV_WANG.pdf" }
     ]
 
-# --- 菜单配置 (Navigation Menu) ---
 [menu]
   [[menu.main]]
     identifier = "cv"
     name = "CV"
-    pageRef = "/cv" 
+    pageRef = "/cv"
     weight = 10
-
-  #[[menu.main]]
-  #  identifier = "test"
-  #  name = "test"
-  #  pageRef = "/test" 
-  #  weight = 20
-
-  #[[menu.main]]
-  #  identifier = "research"
-  #  name = "Research"
-  #  pageRef = "/research" 
-  #  weight = 20
 
   [[menu.main]]
     identifier = "publications"
     name = "Publications"
-    pageRef = "/publications" 
+    pageRef = "/publications"
     weight = 30
-
-  #[[menu.main]]
-  #  identifier = "musings"
-  #  name = "Musings"
-  #  pageRef = "/musings" 
-  #  weight = 40
-
-  
 
 [markup]
   [markup.goldmark]
