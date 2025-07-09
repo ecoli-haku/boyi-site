@@ -1,0 +1,94 @@
+# hugo.toml
+
+baseURL = "http://example.org/" # 替换为你的网站域名，例如 "https://yourusername.github.io/"
+languageCode = "en-us"          # **关键：设置为英文**
+title = "BOYI WANG" # 替换为你的英文网站标题
+
+theme = "congo" # 指定使用 Congo 主题
+
+
+[taxonomies]
+  author = "authors"
+
+# --- 主题参数 ---
+[params]
+  colorScheme = "auto" # **关键：设置为 "auto"，允许用户切换和自动适应系统设置**
+  defaultAppearance = "light" # 设置默认外观模式（当 colorScheme 为 auto 时，如果用户没有明确选择，将以此模式显示）
+  customCSS = true
+
+  [params.homepage] 
+    layout = "profile" 
+
+  [params.header]
+    menuAlignment = "left"
+
+  [params.footer]
+    show = false
+
+  # 启用内置的搜索功能 (可选)
+  [params.analytics]
+    plausible = false # 根据需要配置
+    google = false    # 根据需要配置
+
+  # 启用内置的评论系统 (可选)
+  [params.comments]
+    enabled = false   # 设置为 true 以启用评论系统，例如 Giscus, Disqus 等
+    service = ""      # 选择评论服务 (e.g., "giscus", "disqus")
+
+  # 配置 RSS 链接，通常不需要修改
+  [params.rss]
+    localized = true
+
+  # --- 个人资料配置 (Profile Layout Specific) ---
+  [params.author]
+    name = "BOYI WANG"
+    image = "avatar.jpg" # 
+    imageTitle = "not generated from AI"
+    headline = "Postdoctoral researcher @ MPI-PKS"
+    bio = "Postdoc @ MPI-PKS"
+    links = [
+      { google-scholar = "https://scholar.google.com/citations?user=04a2hB8AAAAJ&hl=zh-CN&authuser=1&oi=sra" },
+      { ResearchGate = "https://www.researchgate.net/profile/Boyi-Wang-4"},
+      { orcid = "https://orcid.org/0000-0003-1107-7591" },
+      { email = "mailto:boyiw@pks.mpg.de" },
+      { file-pdf = "/CV_WANG.pdf" }
+    ]
+
+# --- 菜单配置 (Navigation Menu) ---
+[menu]
+  [[menu.main]]
+    identifier = "cv"
+    name = "CV"
+    pageRef = "/cv" 
+    weight = 10
+
+  #[[menu.main]]
+  #  identifier = "test"
+  #  name = "test"
+  #  pageRef = "/test" 
+  #  weight = 20
+
+  #[[menu.main]]
+  #  identifier = "research"
+  #  name = "Research"
+  #  pageRef = "/research" 
+  #  weight = 20
+
+  [[menu.main]]
+    identifier = "publications"
+    name = "Publications"
+    pageRef = "/publications" 
+    weight = 30
+
+  #[[menu.main]]
+  #  identifier = "musings"
+  #  name = "Musings"
+  #  pageRef = "/musings" 
+  #  weight = 40
+
+  
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
