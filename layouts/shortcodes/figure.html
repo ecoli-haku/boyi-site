@@ -1,0 +1,11 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $caption := .Get "caption" -}}
+{{- $class := .Get "class" -}}
+{{- $width := .Get "width" -}}
+{{- $height := .Get "height" -}}
+
+<figure{{ with $class }} class="{{ . }}"{{ end }}>
+  <img src="{{ $src }}" alt="{{ $alt }}"{{ with $width }} width="{{ . }}"{{ end }}{{ with $height }} height="{{ . }}"{{ end }}>
+  {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>
