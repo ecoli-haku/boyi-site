@@ -1,6 +1,6 @@
 # hugo.toml
 
-baseURL = "http://example.org/" # 替换为你的网站域名，例如 "https://yourusername.github.io/"
+baseURL = "https://boyi-wang.com/" 
 languageCode = "en-us"          # **关键：设置为英文**
 title = "BOYI WANG" # 替换为你的英文网站标题
 
